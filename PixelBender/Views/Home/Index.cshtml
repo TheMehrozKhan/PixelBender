@@ -1,0 +1,84 @@
+﻿<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.5.0/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+    <title>PixelBender Developed By Mehroz Khan</title>
+</head>
+<style>
+    ::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background-color: #f1f1f1;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background-color: #888;
+    }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background-color: #555;
+        }
+
+    body {
+        background-image: url(../../Photos/BG.png);
+        background-size: cover;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    .upload-form {
+        background-color: white;
+        padding: 40px;
+        margin: 0 auto; /* Center the form */
+        border-radius: 25px;
+        box-shadow: rgba(17, 12, 46, 0.08) 0px 48px 100px 0px;
+        width: 490px;
+        height: 460px;
+    }
+
+    #thebutton {
+        outline: none;
+        background-color: black;
+        border: none;
+        border-radius: 7px;
+        cursor: pointer;
+        width: 100%;
+        font-size: 25px;
+        height: 50px;
+        transition: 0.2s;
+    }
+
+        #thebutton:hover {
+            background-color: darkorange;
+            box-shadow: 0px 8px 24px rgba(0, 191, 255, 0.1);
+        }
+
+    .custom-input {
+        border-radius: 6px;
+        padding: 8px;
+        box-shadow: rgba(149, 157, 165, 0.1) 0px 8px 24px;
+        margin-bottom: 28px;
+        border: 2px solid transparent; /* Use border instead of border-color */
+    }
+
+        .custom-input:focus {
+            outline: none;
+            box-shadow: none;
+            border-color: darkorange;
+        }
+</style>
+<div class="d-flex justify-content-center align-items-center" style="margin-top:50px;margin-bottom:120px;">
+    @using (Html.BeginForm("UploadPhoto", "Home", FormMethod.Post, new { enctype = "multipart/form-data", @class = "upload-form" }))
+    {
+        <form method="post">
+            <h3 class="mb-4 text-center" style="font-size: 27px;margin-bottom:45px;">Upload Your Photo</h3>
+            <label for="photo" style="font-weight: 500;">Choose a Photo:</label>
+            <input type="file" name="photo" id="photo" required class="form-group custom-input w-auto" />
+            <label for="borderRadius" style="font-weight:500">Border Radius (In Pixels):</label>
+            <input type="number" name="borderRadius" id="borderRadius" required class="form-group custom-input w-auto" />
+            <button type="submit" class="btn btn-primary" id="thebutton" style="margin-top: 10px;">
+                Upload
+            </button>
+        </form>
+    }
+</div>
